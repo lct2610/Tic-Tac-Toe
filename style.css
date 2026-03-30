@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+NL:wght@100..400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Noto Sans", sans-serif;
+    background: #f4f6f9;
+    padding-bottom: 72px;
+}
+
+/* Banners*/
+.top-banner, .bottom-banner {
+    background-color: #1d91a6;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.banner-content {
+    font-size: 25px;
+    font-weight: bold;
+    white-space: nowrap;
+    width: 100%;
+    animation: scrollLeft 25s linear infinite;
+}
+
+.bottom-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* Animation*/
+@keyframes scrollLeft {
+    from { transform: translateX(150%);}
+    to { transform: translateX(-150%);}
+}
+
+/* Game Layout*/
+.game-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-rows: repeat(3, 10vw);
+    grid-template-columns: repeat(3, 10vw);
+}
+
+.box{
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8vw;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.box:hover{
+    background-color:rgb(219, 203, 234);
+}
+
+.line {
+    position: absolute;
+    height: 6px;
+    width: 0;
+    background-color: #911d59;
+    transition: width 1s ease-in-out;
+}
+
+.square-bg {
+    background-color: #1d91a6;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    white-space: nowrap;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.square-bg h1 {
+    margin-bottom: 30px;
+}
+
+.info{
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 6px 18px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 6px;
+    background: rgb(150, 60, 60);
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: rgb(120, 40, 40);
+}
+
+@media screen and (max-width: 950px) {
+    .game-wrapper {
+        flex-wrap: wrap;
+    }
+    .gameInfo {
+        margin-top: 34px;
+    }
+    .gameInfo h1 {
+        font-size: 1.5rem;
+    }
+    .board { 
+        grid-template-rows: repeat(3, 15vw);
+        grid-template-columns: repeat(3, 15vw);
+    }
+}
